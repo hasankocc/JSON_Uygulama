@@ -1,0 +1,60 @@
+﻿body {
+}
+#left {
+    margin:5px; 
+    float:left; 
+    width:200px; 
+    height:200px; 
+    border:1px solid black;
+}
+#right {
+    margin-left:250px; 
+    margin-top:15px; 
+    width:200px; 
+    height:200px; 
+    border:1px solid black;
+}
+#bottom {
+    margin-top:20px; 
+    margin-left:5px; 
+    float:left;
+    width:200px; 
+    height:200px; 
+    border:1px solid black;
+}
+label.lblAd {
+    margin-left:10px;
+    margin-top:10px;
+}
+label.lblSoyad {
+    margin-left:10px;
+    margin-top:20px;
+}
+label.lblNo {
+    margin-top:10px; 
+    margin-left:5px;
+}
+.txtStudentId {
+    margin-top:10px; 
+    margin-left:5px;
+}
+.btnGetStudent {
+    margin-top:50px; 
+    margin-left:100px;
+}
+.studentName {
+    margin-left:10px; 
+    margin-top:auto;
+}
+.studentSurname {
+    margin-left:10px; 
+    margin-top:auto;
+}
+.btnGetStudentAll {
+    margin-top:10px; 
+    margin-left:40px;
+}
+.studentListMain {
+    margin-top:10px; 
+    margin-left:10px;
+}

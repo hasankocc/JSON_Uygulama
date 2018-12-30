@@ -1,0 +1,71 @@
+﻿<html lang="en">
+<head>
+<title>
+    Index
+</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" href="../../css/mystylesheet.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+    <body>
+     <div class="container">
+      <h2>Index</h2>
+      <div id="left">
+        <label class="lblNo"> Öğrenci No:</label><br />
+        <input type="text" class="txtStudentId" id="studentID" />
+        <input type="button" id="GetStudent" value="Görüntüle" class="btnGetStudent" />
+      </div>
+     <div id="right">
+         <label class="lblAd">Öğrenci Adı:</label><br />
+         <p id="studentName" class="studentName"></p><br />
+         <label class="lblSoyad">Öğrenci Soyadı:</label> <br />
+         <p id="studentSurname" class="studentSurname"></p>
+     </div>
+        <br />
+     <div id="bottom">        
+         <input type="button" id="GetStudentAll" value="Tümünü Listele" class="btnGetStudentAll" />
+     </div>
+     <div id="studentListMain" class="studentListMain">
+     </div> 
+    </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#GetStudent").click(function () {
+            var id = $("#studentID").val();
+            $.ajax({
+                url: '/Home/GetStudent/' + id,
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    $("#studentName").html(data.name);
+                    $("#studentSurname").html(data.surname);
+                }
+            });
+        });
+        $("#GetStudentAll").click(function () {
+
+            $.ajax({
+                url: '/Home/GetStudentAll/',
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    $.each(data, function (i, item) {
+                        $("#studentListMain").append(item.ID +"-"+ item.name + " " + item.surname + "<br> ");
+
+                    });
+                }
+            });
+
+        });
+
+    });
+
+</script>
+    </body>
+    </html>
+  
+
+
